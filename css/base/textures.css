@@ -1,0 +1,68 @@
+/* =========================================================
+   textures.css
+   Grain, halo d'accent et réglures verticales de fond.
+   ========================================================= */
+
+/* --- Textures : grain + halo d'accent --- */
+
+.grain {
+  position: fixed;
+  inset: -50%;
+  z-index: 1;
+  pointer-events: none;
+  opacity: var(--grain-op);
+  mix-blend-mode: var(--grain-blend, multiply);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+  animation: grain-shift 7s steps(6) infinite;
+}
+:root[data-theme="dark"] .grain,
+:root:not([data-theme="light"]) .grain { --grain-blend: screen; }
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .grain { --grain-blend: multiply; }
+}
+
+@keyframes grain-shift {
+  0%   { transform: translate(0, 0); }
+  20%  { transform: translate(-3%, 2%); }
+  40%  { transform: translate(2%, -3%); }
+  60%  { transform: translate(-2%, -2%); }
+  80%  { transform: translate(3%, 1%); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Halo qui suit vaguement le pointeur — piloté par js/app.js */
+.halo {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(38rem 38rem at var(--mx, 70%) var(--my, 12%), var(--accent-soft), transparent 68%);
+  transition: background-color .45s var(--ease);
+}
+
+
+/* --- Réglures verticales de fond --- */
+
+.rules {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  display: none;
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-inline: var(--gut);
+  grid-template-columns: repeat(4, 1fr);
+}
+.rules span { border-left: 1px solid var(--line); opacity: .55; }
+.rules span:nth-child(4) { border-right: 1px solid var(--line); }
+
+@media (min-width: 900px) { .rules { display: grid; } }
+.rules span:nth-child(n+5) { display: none; }
+@media (min-width: 1400px) {
+  .rules { grid-template-columns: repeat(6, 1fr); }
+  .rules span:nth-child(n+5) { display: block; }
+  .rules span:nth-child(4) { border-right: 0; }
+  .rules span:nth-child(6) { border-right: 1px solid var(--line); }
+}

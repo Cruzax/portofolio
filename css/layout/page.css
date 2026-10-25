@@ -1,0 +1,57 @@
+/* =========================================================
+   page.css
+   Enveloppe, sections et entêtes de section.
+   ========================================================= */
+
+.wrap {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-inline: var(--gut);
+}
+
+.section { padding-block: var(--sec-y); position: relative; z-index: 2; }
+.section + .section { border-top: 1px solid var(--line); }
+
+/* --- Entête de section : compteur + titre + note --- */
+
+.sechead {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+  margin-bottom: clamp(2.25rem, 1.5rem + 2.4vw, 4rem);
+}
+.sechead__top {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding-bottom: .8rem;
+  border-bottom: 1px solid var(--line);
+}
+.sechead__num { color: var(--accent); }
+.sechead__rule { flex: 1; height: 1px; background: var(--line); }
+.sechead h2 { max-width: 20ch; }
+.sechead__note { max-width: 46ch; color: var(--text-2); }
+
+/* Titre à gauche, note calée sur la grille : elles démarrent à la même
+   hauteur, et la note s'arrête net sur la marge droite. */
+@media (min-width: 900px) {
+  .sechead__body {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: var(--gut);
+    align-items: start;
+  }
+  .sechead h2 {
+    grid-column: 1 / 8;
+    max-width: 14ch;
+  }
+  .sechead__note {
+    grid-column: 9 / -1;
+    max-width: none;
+    margin: 0;
+    padding-top: .45rem;   /* aligne l'œil du texte sur celui du titre */
+  }
+}

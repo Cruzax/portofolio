@@ -1,0 +1,55 @@
+/* =========================================================
+   boutons.css
+   Boutons pleins, accent et fantômes.
+   ========================================================= */
+
+/* --- Boutons --- */
+
+.btn {
+  --btn-bg: var(--text);
+  --btn-fg: var(--bg);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: .7rem;
+  padding: .85rem 1.4rem;
+  border: 1px solid var(--btn-bg);
+  border-radius: var(--radius);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font-family: var(--font-mono);
+  font-size: var(--t-mono);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+  isolation: isolate;
+  transition: color .3s var(--ease), border-color .3s var(--ease);
+}
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--btn-fg);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform .4s var(--ease-out);
+}
+.btn:hover::before, .btn:focus-visible::before { transform: scaleY(1); }
+.btn:hover, .btn:focus-visible { color: var(--btn-bg); }
+
+.btn--accent { --btn-bg: var(--accent); --btn-fg: var(--on-accent); }
+
+.btn--ghost {
+  --btn-bg: transparent;
+  --btn-fg: var(--text);
+  border-color: var(--line-strong);
+  color: var(--text);
+}
+.btn--ghost::before { background: var(--text); }
+.btn--ghost:hover, .btn--ghost:focus-visible { color: var(--bg); border-color: var(--text); }
+
+.btn__arrow { transition: transform .4s var(--ease-out); }
+.btn:hover .btn__arrow { transform: translateX(4px); }

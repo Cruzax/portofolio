@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Mentions légales — Benjamin Scheurer · Cruz.dev</title>
+<meta name="description" content="Mentions légales du site Cruz.dev — Benjamin Scheurer, développeur web freelance en micro-entreprise." />
+<meta name="robots" content="noindex, follow" />
+<meta name="theme-color" content="#0B0B0C" media="(prefers-color-scheme: dark)" />
+<meta name="theme-color" content="#F2EEE4" media="(prefers-color-scheme: light)" />
+
+<!-- Socle : polices, variables, remise à zéro, textures, animations -->
+<link rel="stylesheet" href="css/base/fonts.css" />
+<link rel="stylesheet" href="css/base/tokens.css" />
+<link rel="stylesheet" href="css/base/reset.css" />
+<link rel="stylesheet" href="css/base/typographie.css" />
+<link rel="stylesheet" href="css/base/utilitaires.css" />
+<link rel="stylesheet" href="css/base/textures.css" />
+<link rel="stylesheet" href="css/base/animations.css" />
+
+<!-- Ossature de page -->
+<link rel="stylesheet" href="css/layout/page.css" />
+<link rel="stylesheet" href="css/layout/topbar.css" />
+<link rel="stylesheet" href="css/layout/footer.css" />
+
+<!-- Composants réutilisables -->
+<link rel="stylesheet" href="css/components/boutons.css" />
+<link rel="stylesheet" href="css/components/tags.css" />
+<link rel="stylesheet" href="css/components/card.css" />
+<link rel="stylesheet" href="css/components/icon-link.css" />
+<link rel="stylesheet" href="css/components/theme-toggle.css" />
+<link rel="stylesheet" href="css/components/notice.css" />
+
+<!-- Une feuille par section de la page -->
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%23FF5B2E%22%2F%3E%3Cpath%20d%3D%22M20.6%2011.6a5.6%205.6%200%20100%208.8%22%20stroke%3D%22%23120A06%22%20stroke-width%3D%223%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E" />
+
+<style>
+  /* Page de texte : une seule colonne, mesure courte. */
+  .legal { max-width: 68ch; }
+  .legal h2 {
+    font-size: clamp(1.15rem, 1rem + .6vw, 1.5rem);
+    margin: 2.6rem 0 .9rem;
+    padding-bottom: .6rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .legal h2:first-of-type { margin-top: 0; }
+  .legal p { margin-bottom: 1rem; color: var(--text-2); }
+  .legal a { color: var(--accent); }
+  .legal dl { display: grid; gap: .6rem; margin: 0 0 1.4rem; }
+  .legal dl div { display: flex; gap: 1rem; align-items: baseline; flex-wrap: wrap; }
+  .legal dt {
+    flex: 0 0 11rem;
+    font-family: var(--font-mono);
+    font-size: var(--t-mono);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--text-3);
+  }
+  .legal dd { margin: 0; }
+
+  /* Champ que Benjamin doit compléter avant mise en ligne. */
+  .todo {
+    display: inline-block;
+    padding: .1rem .5rem;
+    border: 1px dashed var(--accent);
+    border-radius: 2px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: .74rem;
+    letter-spacing: .04em;
+  }
+</style>
+<script>
+  (function () {
+    var r = document.documentElement;
+    r.classList.add('js-anim');
+    try {
+      var t = localStorage.getItem('cruz-theme');
+      if (t === 'light' || t === 'dark') r.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+
+<body>
+
+<div class="halo" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="topbar__in">
+    <a class="brand" href="index.html">
+      <span class="brand__dot" aria-hidden="true"></span>
+      <span class="brand__word">Cruz<span class="accent">.dev</span></span>
+    </a>
+    <div class="topbar__actions">
+      <button class="theme-toggle" id="theme-toggle" type="button"
+              aria-label="Basculer entre le thème clair et sombre" aria-pressed="false">
+        <span class="theme-toggle__icons" aria-hidden="true"><span>☀</span><span>☾</span></span>
+      </button>
+      <a class="btn btn--ghost" href="index.html">Retour au site</a>
+    </div>
+  </div>
+</header>
+
+<main class="section wrap">
+
+  <div class="sechead">
+    <p class="sechead__top mono">Informations légales <span class="sechead__rule" aria-hidden="true"></span></p>
+    <h2 style="max-width:18ch">Mentions légales</h2>
+  </div>
+
+  <div class="legal">
+
+    <h2>Éditeur du site</h2>
+    <dl>
+      <div><dt>Nom</dt><dd>Benjamin Scheurer</dd></div>
+      <div><dt>Nom commercial</dt><dd>Cruz.dev</dd></div>
+      <div><dt>Statut</dt><dd>Entrepreneur individuel — micro-entreprise</dd></div>
+      <div><dt>Activité</dt><dd>Programmation informatique &amp; développement web</dd></div>
+      <div><dt>Adresse</dt><dd>25550 Bavans, France</dd></div>
+      <div><dt>SIREN</dt><dd>106&nbsp;949&nbsp;225</dd></div>
+      <div><dt>SIRET</dt><dd>10694922500010</dd></div>
+      <div><dt>Code APE</dt><dd>62.01Z — Programmation informatique</dd></div>
+      <div><dt>Courriel</dt><dd><a href="mailto:benjaminxben@gmail.com">benjaminxben@gmail.com</a></dd></div>
+      <div><dt>TVA</dt><dd>TVA non applicable — article 293 B du Code général des impôts</dd></div>
+    </dl>
+
+    <h2>Directeur de la publication</h2>
+    <p>Benjamin Scheurer, en qualité d'éditeur du site.</p>
+
+    <h2>Hébergement</h2>
+    <!--
+      IMPORTANT — l'hébergeur est celui qui STOCKE ET SERT les fichiers, pas le bureau
+      d'enregistrement du nom de domaine. Si le site est finalement déposé ailleurs qu'OVH,
+      remplacer le bloc ci-dessous par le prestataire réel :
+
+      GitHub Pages  GitHub, Inc. — 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA
+                    support.github.com
+      Netlify       Netlify, Inc. — 512 2nd Street, Suite 200, San Francisco, CA 94107, USA
+                    netlify.com
+      Hostinger     Hostinger International Ltd — 61 Lordou Vironos St., 6023 Larnaca, Chypre
+                    hostinger.fr
+      IONOS         IONOS SARL — 7 place de la Gare, 57200 Sarreguemines, France
+                    ionos.fr
+    -->
+    <dl>
+      <div><dt>Hébergeur</dt><dd>OVH SAS</dd></div>
+      <div><dt>Adresse</dt><dd>2 rue Kellermann, 59100 Roubaix, France</dd></div>
+      <div><dt>Immatriculation</dt><dd>RCS Lille Métropole 424 761 419</dd></div>
+      <div><dt>Contact</dt><dd><a href="https://www.ovhcloud.com" target="_blank" rel="noopener">ovhcloud.com</a> — 1007</dd></div>
+    </dl>
+    <p>
+      Le nom de domaine est également enregistré chez OVH. À noter&nbsp;: si le site venait à être
+      déposé chez un autre prestataire, c'est ce dernier qui devrait figurer ici — la mention vise
+      celui qui stocke les fichiers, pas celui qui gère le domaine.
+    </p>
+
+    <h2>Propriété intellectuelle</h2>
+    <p>
+      L'ensemble de ce site — structure, textes, code source, mise en page — est la propriété de
+      Benjamin Scheurer, sauf mention contraire. Toute reproduction ou représentation, totale ou
+      partielle, sans autorisation écrite préalable, est interdite.
+    </p>
+    <p>
+      Les captures d'écran présentées dans la section « Projets » illustrent des travaux réalisés pour
+      des clients. Les marques, logos, noms et contenus qui y figurent restent la propriété de leurs
+      titulaires respectifs et ne sont reproduits qu'à titre de référence professionnelle.
+    </p>
+
+    <h2>Données personnelles</h2>
+    <p>
+      Ce site ne comporte aucun formulaire, aucun compte utilisateur et aucun outil de mesure
+      d'audience. Aucune donnée personnelle n'est collectée à votre insu lors de la simple
+      consultation des pages.
+    </p>
+    <p>
+      Si vous m'écrivez, votre adresse électronique et le contenu de votre message sont utilisés
+      uniquement pour vous répondre et suivre la relation commerciale. Ces informations ne sont ni
+      cédées ni revendues. Conformément au Règlement général sur la protection des données (RGPD) et à
+      la loi « Informatique et Libertés », vous disposez d'un droit d'accès, de rectification,
+      d'effacement, de limitation et d'opposition, exerçable à l'adresse
+      <a href="mailto:benjaminxben@gmail.com">benjaminxben@gmail.com</a>. Vous pouvez également
+      introduire une réclamation auprès de la
+      <a href="https://www.cnil.fr" target="_blank" rel="noopener">CNIL</a>.
+    </p>
+
+    <h2>Cookies</h2>
+    <p>
+      Ce site ne dépose <b>aucun cookie</b> et n'utilise aucun traceur publicitaire ou statistique.
+      Votre préférence de thème clair ou sombre est conservée dans le stockage local de votre
+      navigateur&nbsp;: cette information reste sur votre appareil, ne m'est jamais transmise, et
+      disparaît si vous videz les données du site.
+    </p>
+
+    <h2>Ressources externes</h2>
+    <p>
+      Aucune. Les polices de caractères sont hébergées sur ce serveur, et non chargées depuis
+      Google&nbsp;Fonts&nbsp;: votre adresse IP n'est transmise à aucun tiers lors de l'affichage des
+      pages. Le site ne charge ni script, ni feuille de style, ni image provenant d'un autre domaine.
+    </p>
+
+    <h2>Liens externes</h2>
+    <p>
+      Ce site renvoie vers des sites tiers (sites clients, GitHub, LinkedIn). Leur contenu ne relève
+      pas de ma responsabilité et leurs propres conditions s'appliquent dès que vous les consultez.
+    </p>
+
+    <h2>Droit applicable</h2>
+    <p>
+      Le présent site est soumis au droit français. En cas de litige, et à défaut de résolution
+      amiable, les tribunaux français sont seuls compétents.
+    </p>
+
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__legal mono">
+      <span>© <span id="year">2026</span> Benjamin Scheurer — Cruz.dev</span>
+      <span><a href="index.html" style="text-decoration:none">Retour au portfolio</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/outils.js" defer></script>
+<script src="js/theme.js" defer></script>
+<script src="js/contact.js" defer></script>
+<script>
+  var y = document.getElementById('year');
+  if (y) y.textContent = String(new Date().getFullYear());
+</script>
+</body>
+</html>

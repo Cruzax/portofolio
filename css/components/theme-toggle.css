@@ -1,0 +1,41 @@
+/* =========================================================
+   theme-toggle.css
+   Bouton de bascule clair / sombre.
+   ========================================================= */
+
+/* --- Bascule de thème --- */
+
+.theme-toggle {
+  position: relative;
+  width: 58px; height: 30px;
+  padding: 0;
+  border: 1px solid var(--line-strong);
+  border-radius: 30px;
+  background: var(--surface);
+  cursor: pointer;
+  overflow: hidden;
+}
+.theme-toggle::before {
+  content: "";
+  position: absolute;
+  top: 3px; left: 3px;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--text);
+  transition: transform .45s var(--ease-out), background-color .45s var(--ease);
+}
+:root[data-theme="dark"] .theme-toggle::before { transform: translateX(28px); background: var(--accent); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle::before { transform: translateX(28px); background: var(--accent); }
+}
+.theme-toggle__icons {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 8px;
+  font-size: 11px;
+  color: var(--text-3);
+  pointer-events: none;
+}

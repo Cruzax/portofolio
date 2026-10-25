@@ -1,0 +1,7 @@
+# Outils locaux : chemins propres à cette machine, rien à publier.
+.claude/
+
+# Système
+Thumbs.db
+desktop.ini
+.DS_Store

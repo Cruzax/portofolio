@@ -1,0 +1,27 @@
+/* =========================================================
+   a-propos.css
+   Texte, citation et encadré « bon à savoir ».
+   ========================================================= */
+
+/* ---------- À propos ---------- */
+
+.about { display: grid; gap: var(--gut); }
+@media (min-width: 900px) { .about { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); } }
+.about__text { display: grid; gap: 1.1rem; }
+.about__text p { color: var(--text-2); max-width: 60ch; }
+.about__text p:first-child {
+  font-size: var(--t-lead);
+  color: var(--text);
+  line-height: 1.45;
+}
+.about__side { display: grid; gap: 1rem; align-content: start; }
+
+.quote {
+  border-left: 2px solid var(--accent);
+  padding: .2rem 0 .2rem 1.2rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--t-h3);
+  letter-spacing: -.02em;
+  line-height: 1.15;
+}

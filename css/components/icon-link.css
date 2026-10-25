@@ -1,0 +1,21 @@
+/* =========================================================
+   icon-link.css
+   Liens en icône (GitHub, LinkedIn).
+   ========================================================= */
+
+/* --- Lien icône (GitHub) --- */
+
+.icon-link {
+  display: grid;
+  place-items: center;
+  width: 34px; height: 34px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  color: var(--text-2);
+  transition: color .25s var(--ease), border-color .25s var(--ease), transform .35s var(--ease-out);
+}
+.icon-link:hover, .icon-link:focus-visible {
+  color: var(--text);
+  border-color: var(--line-strong);
+  transform: translateY(-1px);
+}

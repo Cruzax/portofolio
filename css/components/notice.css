@@ -1,0 +1,15 @@
+/* =========================================================
+   notice.css
+   Encadré pointillé des notes de maquette.
+   ========================================================= */
+
+/* ---------- Bandeau de note (maquette) ---------- */
+
+.notice {
+  margin-top: 1.5rem;
+  padding: .9rem 1.1rem;
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius);
+  font-size: var(--t-small);
+  color: var(--text-2);
+}

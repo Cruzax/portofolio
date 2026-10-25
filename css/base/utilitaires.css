@@ -1,0 +1,60 @@
+/* =========================================================
+   utilitaires.css
+   Classes de service : mono, lead, mark, sr-only, lien d'évitement.
+   ========================================================= */
+
+/* --- Utilitaires de texte --- */
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--t-mono);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.lead {
+  font-size: var(--t-lead);
+  line-height: 1.45;
+  color: var(--text-2);
+  max-width: 54ch;
+}
+
+.dim { color: var(--text-2); }
+
+.accent { color: var(--accent); }
+
+/* Trait vermillon sous un mot, dessiné au survol du bloc parent */
+.mark {
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-repeat: no-repeat;
+  background-position: 0 92%;
+  background-size: 100% 2px;
+  padding-bottom: .06em;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Lien d'évitement clavier */
+.skip {
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translate(-50%, -140%);
+  z-index: 999;
+  background: var(--accent);
+  color: var(--on-accent);
+  padding: .7rem 1.2rem;
+  font-family: var(--font-mono);
+  font-size: var(--t-mono);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  text-decoration: none;
+  transition: transform .3s var(--ease-out);
+}
+.skip:focus { transform: translate(-50%, 0); }

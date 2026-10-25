@@ -1,0 +1,73 @@
+/* =========================================================
+   marquee.css
+   Bandeau de mots attelé au défilement de la page.
+   ========================================================= */
+
+/* --- Bandeau défilant (stack) --- */
+
+.marquee {
+  position: relative;
+  overflow: hidden;
+  border-block: 1px solid var(--line);
+  padding-block: 1.1rem;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+/* Le bandeau n'avance pas tout seul : il est attelé au défilement de la page.
+   On le pousse en scrollant, il s'arrête quand on s'arrête. Là où une boucle
+   automatique tourne dans le vide, celui-ci répond à la main du visiteur.
+   Navigateur sans timeline de scroll : repli sur une boucle classique. */
+.marquee__track {
+  display: flex;
+  width: max-content;
+  gap: 2.5rem;
+  animation: slide linear both;
+  animation-timeline: scroll(root block);
+}
+
+@supports not (animation-timeline: scroll()) {
+  .marquee__track { animation: slide 38s linear infinite; }
+  .marquee:hover .marquee__track { animation-play-state: paused; }
+}
+/* Tous les mots pleins : les lettres en contour se noyaient, surtout en
+   thème clair. Le rythme vient de l'alternance de densité, pas du vide. */
+.marquee__track span {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.1rem, .9rem + .8vw, 1.6rem);
+  letter-spacing: -.02em;
+  color: var(--text-3);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  cursor: default;
+  transition: color .35s var(--ease), transform .45s var(--ease-out);
+}
+.marquee__track span:nth-child(even) { color: var(--text-2); }
+.marquee__track span:hover {
+  color: var(--accent);
+  transform: translateY(-3px);
+}
+.marquee__track span::after {
+  content: "";
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: .7;
+  transition: transform .45s var(--ease-out), opacity .35s var(--ease);
+}
+.marquee__track span:hover::after { transform: scale(1.8); opacity: 1; }
+
+/* Le bandeau s'arrête et s'éclaircit quand on entre dedans. */
+.marquee { transition: background-color .4s var(--ease); }
+.marquee:hover { background: var(--surface); }
+@keyframes slide {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Mouvement réduit : le bandeau se fige, il n'apporte aucune information. */
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track { animation: none; }
+}

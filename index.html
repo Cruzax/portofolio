@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Benjamin Scheurer — Développeur web · WordPress, React, Node</title>
+<meta name="description" content="Benjamin Scheurer, développeur web dans le Doubs. Thèmes et plugins WordPress écrits à la main, applications React / Node. Certifié DWWM. Ouvert à un poste comme à des missions." />
+<meta name="author" content="Benjamin Scheurer" />
+<meta name="theme-color" content="#0B0B0C" media="(prefers-color-scheme: dark)" />
+<meta name="theme-color" content="#F2EEE4" media="(prefers-color-scheme: light)" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Benjamin Scheurer — Développeur web · WordPress, React, Node" />
+<meta property="og:description" content="WordPress sur-mesure, React / Node, intégration accessible. Quatre sites clients en production. Bavans (25)." />
+<meta property="og:locale" content="fr_FR" />
+
+<!-- Socle : polices, variables, remise à zéro, textures, animations -->
+<link rel="stylesheet" href="css/base/fonts.css" />
+<link rel="stylesheet" href="css/base/tokens.css" />
+<link rel="stylesheet" href="css/base/reset.css" />
+<link rel="stylesheet" href="css/base/typographie.css" />
+<link rel="stylesheet" href="css/base/utilitaires.css" />
+<link rel="stylesheet" href="css/base/textures.css" />
+<link rel="stylesheet" href="css/base/animations.css" />
+
+<!-- Ossature de page -->
+<link rel="stylesheet" href="css/layout/page.css" />
+<link rel="stylesheet" href="css/layout/topbar.css" />
+<link rel="stylesheet" href="css/layout/footer.css" />
+
+<!-- Composants réutilisables -->
+<link rel="stylesheet" href="css/components/boutons.css" />
+<link rel="stylesheet" href="css/components/tags.css" />
+<link rel="stylesheet" href="css/components/card.css" />
+<link rel="stylesheet" href="css/components/icon-link.css" />
+<link rel="stylesheet" href="css/components/theme-toggle.css" />
+<link rel="stylesheet" href="css/components/notice.css" />
+<link rel="stylesheet" href="css/components/filters.css" />
+<link rel="stylesheet" href="css/components/project-card.css" />
+<link rel="stylesheet" href="css/components/project-plate.css" />
+<link rel="stylesheet" href="css/components/marquee.css" />
+
+<!-- Une feuille par section de la page -->
+<link rel="stylesheet" href="css/sections/hero.css" />
+<link rel="stylesheet" href="css/sections/services.css" />
+<link rel="stylesheet" href="css/sections/stack.css" />
+<link rel="stylesheet" href="css/sections/methode.css" />
+<link rel="stylesheet" href="css/sections/a-propos.css" />
+<link rel="stylesheet" href="css/sections/contact.css" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%23FF5B2E%22%2F%3E%3Cpath%20d%3D%22M20.6%2011.6a5.6%205.6%200%20100%208.8%22%20stroke%3D%22%23120A06%22%20stroke-width%3D%223%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E" />
+
+<!-- Posé avant tout rendu : le thème enregistré s'applique sans flash,
+     et les états masqués des animations ne s'activent que si le JS tourne.
+     Sans script, la page reste entièrement lisible. -->
+<script>
+  (function () {
+    var r = document.documentElement;
+    r.classList.add('js-anim');
+    try {
+      var t = localStorage.getItem('cruz-theme');
+      if (t === 'light' || t === 'dark') r.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+
+<body>
+
+<a class="skip" href="#projets">Aller aux projets</a>
+
+<div class="halo" aria-hidden="true"></div>
+<div class="rules" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ============ Barre haute ============ -->
+<header class="topbar" id="topbar">
+  <div class="topbar__in">
+    <a class="brand" href="#top">
+      <span class="brand__dot" aria-hidden="true"></span>
+      <span class="brand__word">Cruz<span class="accent">.dev</span></span>
+    </a>
+
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="#services">Compétences</a>
+      <a href="#projets">Projets</a>
+      <a href="#stack">Stack</a>
+      <a href="#methode">Méthode</a>
+      <a href="#apropos">À propos</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="topbar__actions">
+      <a class="icon-link" href="https://github.com/cruzax" target="_blank" rel="noopener"
+         aria-label="Mon GitHub (nouvel onglet)" title="GitHub">
+        <svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true" fill="currentColor">
+          <path d="M12 .5a11.5 11.5 0 00-3.64 22.41c.58.1.79-.25.79-.55v-2.1c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 015.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.26 5.69.41.36.78 1.06.78 2.14v3.17c0 .3.21.66.8.55A11.5 11.5 0 0012 .5z"/>
+        </svg>
+      </a>
+      <a class="icon-link" href="https://www.linkedin.com/in/benjaminscheurer/" target="_blank" rel="noopener"
+         aria-label="Mon LinkedIn (nouvel onglet)" title="LinkedIn">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor">
+          <path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM10 9h3.8v1.64h.06c.53-.96 1.83-1.98 3.76-1.98C21.4 8.66 22 11 22 14.02V21h-4v-6.19c0-1.48-.03-3.38-2.08-3.38-2.09 0-2.41 1.6-2.41 3.27V21h-4z"/>
+        </svg>
+      </a>
+      <button class="theme-toggle" id="theme-toggle" type="button"
+              aria-label="Basculer entre le thème clair et sombre" aria-pressed="false">
+        <span class="theme-toggle__icons" aria-hidden="true"><span>☀</span><span>☾</span></span>
+      </button>
+      <a class="btn btn--accent" href="#contact">
+        Me contacter <span class="btn__arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ Héros ============ -->
+  <section class="hero wrap" aria-labelledby="hero-title">
+    <p class="hero__eyebrow mono"><i aria-hidden="true"></i>Bavans, Doubs — et à distance</p>
+
+    <h1 class="hero__name" id="hero-title">
+      <span class="l1"><i>Benjamin</i></span>
+      <span class="l2"><i>Scheurer</i></span>
+    </h1>
+
+    <div class="hero__meta">
+      <div>
+        <p class="lead">
+          Développeur web. Sites <span class="mark">WordPress sur-mesure</span> et applications
+          <span class="mark">React&nbsp;/&nbsp;Node</span>, écrits à la main. Sans page builder.
+        </p>
+
+        <div class="hero__cta">
+          <a class="btn" href="#projets">Voir les projets <span class="btn__arrow" aria-hidden="true">↓</span></a>
+          <a class="btn btn--ghost" href="mailto:benjaminxben@gmail.com">Écrire un mail</a>
+        </div>
+
+        <p class="hero__status">
+          Certifié DWWM. <b>Ouvert à un poste comme à des missions freelance.</b>
+        </p>
+      </div>
+
+      <figure class="hero__photo">
+        <img src="assets/img/portrait.png" alt="Portrait de Benjamin Scheurer"
+             width="520" height="520" fetchpriority="high" decoding="async" />
+      </figure>
+
+    </div>
+
+    <p class="hero__scroll mono"><i aria-hidden="true"></i> Faites défiler</p>
+  </section>
+
+
+  <!-- ============ Services ============ -->
+  <section class="section wrap" id="services" aria-labelledby="t-services">
+    <div class="sechead">
+      <p class="sechead__top mono"><span class="sechead__num">01</span> Compétences <span class="sechead__rule" aria-hidden="true"></span></p>
+      <div class="sechead__body">
+        <h2 id="t-services">Ce que je sais faire</h2>
+        <p class="sechead__note">Trois domaines. Dans les trois, je livre un code qu'un autre
+          développeur peut reprendre sans me demander.</p>
+      </div>
+    </div>
+
+    <div class="services">
+      <article class="card" data-reveal>
+        <span class="card__num mono">C/01</span>
+        <h3>Site WordPress sur-mesure</h3>
+        <p>Thème écrit à la main, pas de gabarit acheté, pas d'empilement d'extensions.</p>
+        <ul>
+          <li>Thème custom — PHP, ACF, types de contenu dédiés</li>
+          <li>Plugins métier séparés, un rôle par plugin</li>
+          <li>Back-office pensé pour non-techniciens</li>
+        </ul>
+      </article>
+
+      <article class="card" data-reveal style="--d:.08s">
+        <span class="card__num mono">C/02</span>
+        <h3>Application web React / Node</h3>
+        <p>Quand un site vitrine ne suffit plus : espace membre, tableau de bord, logique métier.</p>
+        <ul>
+          <li>Front React, états maîtrisés</li>
+          <li>API Node, PostgreSQL, Prisma</li>
+          <li>Authentification, rôles, droits</li>
+        </ul>
+      </article>
+
+      <article class="card" data-reveal style="--d:.16s">
+        <span class="card__num mono">C/03</span>
+        <h3>Intégration &amp; refonte</h3>
+        <p>Une maquette, un PDF, un site vieillissant — j'en fais des pages propres et rapides.</p>
+        <ul>
+          <li>Maquette ou visuel → HTML/CSS fidèle au pixel</li>
+          <li>Audit de l'existant avant d'y toucher</li>
+          <li>Responsive, mode sombre, accessibilité</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ Projets ============ -->
+  <section class="section wrap" id="projets" aria-labelledby="t-projets">
+    <div class="sechead">
+      <p class="sechead__top mono"><span class="sechead__num">02</span> Projets <span class="sechead__rule" aria-hidden="true"></span></p>
+      <div class="sechead__body">
+        <h2 id="t-projets">Quatre sites livrés, deux chantiers</h2>
+        <p class="sechead__note">Quatre sites clients en ligne. Deux projets personnels en cours.</p>
+      </div>
+    </div>
+
+    <div class="filters" role="group" aria-label="Filtrer les projets par domaine">
+      <button class="filter" type="button" data-filter="all" aria-pressed="true">Tous</button>
+      <button class="filter" type="button" data-filter="client" aria-pressed="false">Sites clients</button>
+      <button class="filter" type="button" data-filter="perso" aria-pressed="false">Projets perso</button>
+      <p class="filters__count mono" id="filters-count" aria-live="polite">6 projets</p>
+    </div>
+
+    <div class="projects" id="projects-list">
+
+      <!-- 01 — AssoMAR -->
+      <article class="project" data-tags="wordpress client" data-reveal>
+        <div class="project__plate" style="--px:22%; --py:70%">
+          <span class="plate__badge">Livré au client</span>
+          <img class="plate__shot" src="assets/img/assomar.png" alt="Page d'accueil du site AssoMAR"
+               width="1440" height="1060" loading="lazy" decoding="async" />
+        </div>
+        <div class="project__body">
+          <div class="project__title">
+            <h3>AssoMAR</h3>
+            <a class="project__link" href="https://assomar.fr" target="_blank" rel="noopener">assomar.fr ↗</a>
+          </div>
+          <p class="project__lede">
+            Compagnie de théâtre forum à Besançon. Thème WordPress custom et
+            <b>quatre plugins PHP maison</b>&nbsp;: 17 spectacles et 7 comédiens gérés par
+            l'association seule.
+          </p>
+          <ul class="tags">
+            <li class="tag">WordPress</li><li class="tag">4 plugins PHP</li><li class="tag">ACF</li>
+            <li class="tag">3 CPT</li>
+          </ul>
+          <details class="project__more">
+            <summary>Le détail</summary>
+            <p>
+              Quatre plugins, quatre domaines, aucun recouvrement. Trois types de contenu dédiés et des
+              champs ACF permettent à l'association de tout publier <b>sans jamais toucher une ligne de
+              code</b> — ni m'appeler.
+            </p>
+            <p>
+              <b><code>mar-spectacles</code></b> tient le répertoire&nbsp;: <b>17 créations depuis
+              2023</b>, présentées en cards avec image, titre et accroche, et surtout
+              <b>filtrables par public</b> — adultes, entreprise &amp; pro, famille, jeunesse. Un
+              programmateur qui cherche un spectacle jeunesse le trouve en un clic au lieu de faire
+              défiler dix-sept fiches. Chaque spectacle a sa page de détail via « Lire le pitch ».
+            </p>
+            <p>
+              <b><code>mar-troupe</code></b> gère les <b>sept comédiens et intervenantes</b>&nbsp;: photo,
+              nom, rôle et biographie, modifiables depuis le back-office. Dans une compagnie, l'équipe
+              bouge&nbsp;; il n'était pas question qu'un changement de photo passe par un développeur.
+            </p>
+            <p>
+              <b><code>mar-actu</code></b> alimente le fil d'actualités, classé par catégories, et
+              <b><code>mar-contact</code></b> gère les demandes. S'ajoute le plugin d'édition qui rend
+              les textes du site modifiables par l'association, comme sur mes autres projets.
+            </p>
+            <p>
+              Le site existait en version statique&nbsp;: j'ai mené la migration vers WordPress sans
+              perte de contenu. Hébergé chez IONOS.
+            </p>
+            <dl class="project__facts">
+              <div><dt>Rôle</dt><dd>Thème, quatre plugins, migration, mise en ligne</dd></div>
+              <div><dt>Cadre</dt><dd>Projet de certification DWWM</dd></div>
+              <div><dt>Point clé</dt><dd>Un répertoire de 17 spectacles filtrable par public</dd></div>
+            </dl>
+          </details>
+        </div>
+      </article>
+
+      <!-- 02 — Partenaires d'Affaires -->
+      <article class="project" data-tags="wordpress client" data-reveal>
+        <div class="project__plate" style="--px:78%; --py:30%">
+          <span class="plate__badge">Livré au client</span>
+          <img class="plate__shot" src="assets/img/partenaires-daffaires.png" alt="Page d'accueil du site Partenaires d'Affaires"
+               width="1440" height="1060" loading="lazy" decoding="async" />
+        </div>
+        <div class="project__body">
+          <div class="project__title">
+            <h3>Partenaires d'Affaires</h3>
+            <a class="project__link" href="https://partenairesdaffaires.fr" target="_blank" rel="noopener">partenairesdaffaires.fr ↗</a>
+          </div>
+          <p class="project__lede">
+            Réseau d'entrepreneurs. Thème WordPress custom et surtout un <b>plugin d'administration
+            sur-mesure</b>&nbsp;: badges dorés et prévisualisation vidéo en direct.
+          </p>
+          <ul class="tags">
+            <li class="tag">WordPress</li><li class="tag">PHP</li><li class="tag">Admin custom</li>
+          </ul>
+          <details class="project__more">
+            <summary>Le détail</summary>
+            <p>
+              Un club d'entrepreneurs de Besançon et du Doubs. Le site tient sur cinq espaces —
+              accueil, présentation du club, <b>annuaire des membres</b>, fil d'actualités et parcours
+              d'adhésion — le tout articulé autour d'une promesse simple&nbsp;: un cercle de confiance,
+              des opportunités commerciales, de la convivialité.
+            </p>
+            <p>
+              L'annuaire est le cœur du dispositif. Chaque membre y dispose d'une fiche, et le
+              <b>système de badges dorés</b> que j'ai développé permet à l'administrateur de distinguer
+              certains profils sans toucher au code. Le fil d'actualités reçoit les comptes-rendus
+              d'événements — déjeuners, soirées réseau — publiés par le club lui-même.
+            </p>
+            <p>
+              Le morceau technique, c'est la <b>prévisualisation vidéo en temps réel dans le
+              back-office</b>&nbsp;: l'administrateur voit le rendu de la vidéo pendant qu'il saisit,
+              au lieu de publier puis d'aller vérifier sur le site. Une boucle de correction en
+              quelques secondes plutôt qu'en plusieurs allers-retours.
+            </p>
+            <p>
+              Thème développé à la main, pas de gabarit acheté. J'ai également pris en charge la mise
+              en ligne et l'hébergement chez Hostinger.
+            </p>
+            <dl class="project__facts">
+              <div><dt>Rôle</dt><dd>Thème, plugin d'administration, mise en ligne, hébergement</dd></div>
+              <div><dt>Cadre</dt><dd>Second projet de certification DWWM</dd></div>
+              <div><dt>Point clé</dt><dd>Preview vidéo en direct dans l'admin, badges dorés</dd></div>
+            </dl>
+          </details>
+        </div>
+      </article>
+
+      <!-- 03 — L'Agence Numéro 8 -->
+      <article class="project" data-tags="wordpress client" data-reveal>
+        <div class="project__plate" style="--px:60%; --py:22%">
+          <span class="plate__badge">Livré au client</span>
+          <img class="plate__shot" src="assets/img/lagence-n8.png" alt="Page d'accueil du site de L'Agence Numéro 8"
+               width="1440" height="1060" loading="lazy" decoding="async" />
+        </div>
+        <div class="project__body">
+          <div class="project__title">
+            <h3>L'Agence Numéro 8</h3>
+            <a class="project__link" href="https://www.lagencen8.fr" target="_blank" rel="noopener">lagencen8.fr ↗</a>
+          </div>
+          <p class="project__lede">
+            Agence de communication à Besançon. Site complet, avec <b>deux plugins sur-mesure</b>&nbsp;:
+            l'un pour que l'agence modifie ses textes elle-même, l'autre pour le formulaire de contact.
+          </p>
+          <ul class="tags">
+            <li class="tag">WordPress</li><li class="tag">PHP</li><li class="tag">2 plugins custom</li>
+          </ul>
+          <details class="project__more">
+            <summary>Le détail</summary>
+            <p>
+              Le contenu s'organise autour des huit pôles de l'agence — audit, stratégie, mass médias,
+              sites web, réseaux sociaux, print, événementiel — et met en avant les offres
+              <i>IA&nbsp;Factory</i> et <i>Boost Digital</i>.
+            </p>
+            <p>
+              La difficulté d'un tel site, c'est le volume&nbsp;: huit domaines à présenter sans que le
+              visiteur se perde, plus les certifications de l'agence (Qualiopi, Pôle Numérique BFC,
+              éligibilité CPF) qui doivent rester visibles sans encombrer. La navigation a donc été
+              resserrée sur quatre entrées, et chaque pôle est traité comme un bloc autonome.
+            </p>
+            <p>
+              <b>Premier plugin&nbsp;: l'édition de contenu.</b> Une agence de communication écrit et
+              réécrit ses textes en permanence. Plutôt que de me faire rappeler à chaque virgule, j'ai
+              donné à l'équipe la main sur ses propres contenus depuis le back-office&nbsp;: elle publie
+              ses changements sans développeur, et sans pouvoir casser la mise en page — les zones
+              modifiables sont délimitées.
+            </p>
+            <p>
+              <b>Second plugin&nbsp;: le formulaire de contact.</b> Écrit sur-mesure plutôt qu'emprunté
+              à une extension du marché. C'est le point d'entrée commercial du site&nbsp;: autant qu'il
+              soit sous contrôle, sans réglages superflus ni code tiers embarqué.
+            </p>
+            <dl class="project__facts">
+              <div><dt>Rôle</dt><dd>Site complet — thème et les deux plugins</dd></div>
+              <div><dt>Cadre</dt><dd>Site client, en production</dd></div>
+              <div><dt>Point clé</dt><dd>L'agence édite son contenu seule, sans dépendre de moi</dd></div>
+            </dl>
+          </details>
+        </div>
+      </article>
+
+      <!-- 04 — Greg Coworking -->
+      <article class="project" data-tags="wordpress client" data-reveal>
+        <div class="project__plate" style="--px:30%; --py:28%">
+          <span class="plate__badge">Livré au client</span>
+          <img class="plate__shot" src="assets/img/coworking-greg.png" alt="Page d'accueil du site Greg Coworking"
+               width="1440" height="1060" loading="lazy" decoding="async" />
+        </div>
+        <div class="project__body">
+          <div class="project__title">
+            <h3>Greg Coworking</h3>
+            <a class="project__link" href="https://coworking-gregimmo.com/tarifs/" target="_blank" rel="noopener">voir la page Tarifs ↗</a>
+          </div>
+          <p class="project__lede">
+            Espace de coworking à Montbéliard. <b>Page Tarifs</b> créée de A à Z, et
+            <b><code>gregblog</code></b>, le plugin qui fait tourner le blog.
+          </p>
+          <ul class="tags">
+            <li class="tag">WordPress</li><li class="tag">Plugin PHP</li><li class="tag">ACF</li>
+            <li class="tag">Bricks</li>
+          </ul>
+          <details class="project__more">
+            <summary>Le détail</summary>
+            <p>
+              Un PDF de tarifs et une image de services au départ&nbsp;; en sortie, des
+              <b>cards HTML/CSS autonomes</b> — CSS scopé, SVG inline, aucun framework — intégrées dans
+              Bricks. La page compare quatre formules sur quatre durées, économies affichées.
+            </p>
+            <p>
+              <code>gregblog</code> est <b>découpé par responsabilité</b> — <code>cpt.php</code>,
+              <code>taxonomy.php</code>, <code>acf-fields.php</code> — au lieu d'un
+              <code>functions.php</code> de mille lignes. Reprenable par n'importe qui.
+            </p>
+            <dl class="project__facts">
+              <div><dt>Rôle</dt><dd>Page Tarifs, plugin <code>gregblog</code>, modifications, maintenance</dd></div>
+              <div><dt>Cadre</dt><dd>Mission freelance, livrée</dd></div>
+              <div><dt>Point clé</dt><dd>Un plugin découpé en modules, pas un fichier fourre-tout</dd></div>
+            </dl>
+          </details>
+        </div>
+      </article>
+
+      <!-- 05 — Sillon -->
+      <article class="project" data-tags="perso" data-reveal>
+        <div class="project__plate" style="--px:50%; --py:20%">
+          <span class="plate__badge">En cours</span>
+          <img class="plate__shot" src="assets/img/sillon.png" alt="Fil audio de l'interface Sillon"
+               width="1440" height="1060" loading="lazy" decoding="async" />
+        </div>
+        <div class="project__body">
+          <div class="project__title">
+            <h3>Sillon</h3>
+            <span class="tag tag--live">Chantier en cours</span>
+          </div>
+          <p class="project__lede">
+            Réseau social <i>audio-first</i> pour musiciens&nbsp;: le son passe avant l'image.
+            Interface complète en vanilla, sans framework.
+          </p>
+          <ul class="tags">
+            <li class="tag">JS vanilla</li><li class="tag">Design UI</li><li class="tag">Audio</li>
+          </ul>
+          <details class="project__more">
+            <summary>Le détail</summary>
+            <p>
+              Fil audio en trois colonnes, page morceau, profil, publication, place de marché — avec une
+              typographie et un rythme éditorial assumés. Un terrain d'essai pour des interfaces denses
+              qui restent lisibles.
+            </p>
+            <dl class="project__facts">
+              <div><dt>Rôle</dt><dd>Concept, direction visuelle, intégration</dd></div>
+              <div><dt>Cadre</dt><dd>Projet personnel, en développement</dd></div>
+              <div><dt>Point clé</dt><dd>Interface dense sans framework, découpée en modules JS</dd></div>
+            </dl>
+          </details>
+        </div>
+      </article>
+
+      <!-- 06 — RAOUT -->
+      <article class="project" data-tags="perso" data-reveal>
+        <div class="project__plate" style="--px:38%; --py:62%">
+          <span class="plate__badge">En cours</span>
+          <img class="plate__shot" src="assets/img/raout.png" alt="Fil des sorties de l'application RAOUT"
+               width="1440" height="1060" loading="lazy" decoding="async" />
+        </div>
+        <div class="project__body">
+          <div class="project__title">
+            <h3>RAOUT</h3>
+            <span class="tag tag--live">Chantier en cours</span>
+          </div>
+          <p class="project__lede">
+            Sorties entre amis&nbsp;: un plan créé en vingt secondes, les potes s'inscrivent en un clic.
+            Premier arrivé, premier servi.
+          </p>
+          <ul class="tags">
+            <li class="tag">JS vanilla</li><li class="tag">Routeur hash</li><li class="tag">Canvas</li>
+          </ul>
+          <details class="project__more">
+            <summary>Le détail</summary>
+            <p>
+              Routeur par <i>hash</i>, plusieurs écrans (fil, détail, création, profil, groupes), gestion
+              de groupes et périmètre géographique réglable. La frise des 72 heures à venir affiche chaque
+              plan à son heure exacte.
+            </p>
+            <dl class="project__facts">
+              <div><dt>Rôle</dt><dd>Concept, architecture front, intégration</dd></div>
+              <div><dt>Cadre</dt><dd>Projet personnel, en développement</dd></div>
+              <div><dt>Point clé</dt><dd>Application à plusieurs écrans sans framework ni build</dd></div>
+            </dl>
+          </details>
+        </div>
+      </article>
+
+    </div>
+
+    <p class="notice">
+      Captures prises sur les sites en ligne. Sillon et RAOUT étant en cours de développement,
+      leurs visuels évolueront encore.
+    </p>
+  </section>
+
+  <!-- ============ Stack ============ -->
+  <section class="section wrap" id="stack" aria-labelledby="t-stack">
+    <div class="sechead">
+      <p class="sechead__top mono"><span class="sechead__num">03</span> Stack <span class="sechead__rule" aria-hidden="true"></span></p>
+      <div class="sechead__body">
+        <h2 id="t-stack">Les outils, et pourquoi ceux-là</h2>
+        <p class="sechead__note">Peu d'outils, bien connus. Le vanilla reste la base : tout le reste
+          s'y ramène.</p>
+      </div>
+    </div>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>WordPress</span><span>PHP</span><span>ACF</span><span>React</span><span>Node.js</span>
+        <span>PostgreSQL</span><span>Prisma</span><span>JavaScript</span><span>HTML</span><span>CSS</span>
+        <span>WordPress</span><span>PHP</span><span>ACF</span><span>React</span><span>Node.js</span>
+        <span>PostgreSQL</span><span>Prisma</span><span>JavaScript</span><span>HTML</span><span>CSS</span>
+      </div>
+    </div>
+
+    <div class="stack-grid">
+      <div class="stack-col" data-reveal>
+        <h3>Socle</h3>
+        <ul>
+          <li><b>HTML sémantique</b><span>quotidien</span></li>
+          <li><b>CSS moderne</b><span>grid, custom props</span></li>
+          <li><b>JavaScript</b><span>vanilla, ES modules</span></li>
+          <li><b>Accessibilité</b><span>clavier, ARIA, contrastes</span></li>
+        </ul>
+      </div>
+      <div class="stack-col" data-reveal style="--d:.06s">
+        <h3>WordPress</h3>
+        <ul>
+          <li><b>Thèmes custom</b><span>sans page builder</span></li>
+          <li><b>Plugins PHP</b><span>un rôle par plugin</span></li>
+          <li><b>ACF &amp; CPT</b><span>contenu structuré</span></li>
+          <li><b>Bricks / Fluent Forms</b><span>quand le client le veut</span></li>
+        </ul>
+      </div>
+      <div class="stack-col" data-reveal style="--d:.12s">
+        <h3>Applicatif</h3>
+        <ul>
+          <li><b>React</b><span>interfaces à état</span></li>
+          <li><b>Node.js</b><span>API</span></li>
+          <li><b>PostgreSQL</b><span>relationnel</span></li>
+          <li><b>Prisma</b><span>schéma &amp; migrations</span></li>
+        </ul>
+      </div>
+      <div class="stack-col" data-reveal style="--d:.18s">
+        <h3>Autour</h3>
+        <ul>
+          <li><b>Git</b><span>versionnement</span></li>
+          <li><b>IONOS / Hostinger</b><span>hébergement, DNS</span></li>
+          <li><b>Figma</b><span>lecture de maquettes</span></li>
+          <li><b>Webflow</b><span>audit d'existant</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Méthode ============ -->
+  <section class="section wrap" id="methode" aria-labelledby="t-methode">
+    <div class="sechead">
+      <p class="sechead__top mono"><span class="sechead__num">04</span> Méthode <span class="sechead__rule" aria-hidden="true"></span></p>
+      <div class="sechead__body">
+        <h2 id="t-methode">Comment je travaille</h2>
+        <p class="sechead__note">Quatre étapes, un cadrage écrit, aucune surprise à la livraison.</p>
+      </div>
+    </div>
+
+    <div class="steps">
+      <article class="step" data-reveal>
+        <span class="step__n" aria-hidden="true">01</span>
+        <h3>On se parle</h3>
+        <p>Un appel ou un café, pour comprendre le besoin réel derrière la demande.</p>
+      </article>
+      <article class="step" data-reveal style="--d:.06s">
+        <span class="step__n" aria-hidden="true">02</span>
+        <h3>Cadrage écrit</h3>
+        <p>Ce qui est inclus, ce qui ne l'est pas, le délai. Posé avant d'écrire la première ligne.</p>
+      </article>
+      <article class="step" data-reveal style="--d:.12s">
+        <span class="step__n" aria-hidden="true">03</span>
+        <h3>Développement</h3>
+        <p>Vous suivez l'avancement sur une adresse de test. Personne ne découvre le résultat à la fin.</p>
+      </article>
+      <article class="step" data-reveal style="--d:.18s">
+        <span class="step__n" aria-hidden="true">04</span>
+        <h3>Mise en ligne &amp; passation</h3>
+        <p>Hébergement, domaine, sauvegardes. Puis je vous montre comment faire sans moi.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ À propos ============ -->
+  <section class="section wrap" id="apropos" aria-labelledby="t-apropos">
+    <div class="sechead">
+      <p class="sechead__top mono"><span class="sechead__num">05</span> À propos <span class="sechead__rule" aria-hidden="true"></span></p>
+      <div class="sechead__body">
+        <h2 id="t-apropos">Benjamin, développeur dans le Doubs</h2>
+        <p class="sechead__note">Certifié DWWM, en micro-entreprise, attaché au code lisible.</p>
+      </div>
+    </div>
+
+    <div class="about">
+      <div class="about__text" data-reveal>
+        <p>
+          J'écris du code que je peux relire dans six mois. C'est à peu près tout ce qu'il y a à savoir
+          sur ma façon de travailler.
+        </p>
+        <p>
+          Concrètement&nbsp;: des <b>thèmes sans page builder</b>, des <b>plugins découpés par
+          domaine</b> plutôt qu'un fichier de mille lignes, et des interfaces qui fonctionnent au
+          clavier avant de fonctionner à la souris.
+        </p>
+        <p>
+          Certifié <b>Développeur Web et Web Mobile</b> (RNCP 37674), installé en
+          <b>micro-entreprise</b> à Bavans. Je travaille dans le secteur Montbéliard-Belfort comme
+          à distance.
+        </p>
+      </div>
+
+      <aside class="about__side" data-reveal style="--d:.1s">
+        <p class="quote">« Pas de page builder, pas de thème acheté. Du code qu'on peut relire six mois plus tard. »</p>
+        <div class="card">
+          <span class="card__num mono">Bon à savoir</span>
+          <ul>
+            <li>Ouvert à un poste salarié comme à des missions</li>
+            <li>Certifié DWWM — titre professionnel RNCP 37674</li>
+            <li>Code source livré et commenté en français</li>
+            <li>Montbéliard / Belfort / Besançon, ou à distance</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ Contact ============ -->
+  <section class="section wrap" id="contact" aria-labelledby="t-contact">
+    <div class="sechead">
+      <p class="sechead__top mono"><span class="sechead__num">06</span> Contact <span class="sechead__rule" aria-hidden="true"></span></p>
+      <div class="sechead__body">
+        <h2 id="t-contact">Un poste, un projet, une question ?</h2>
+        <p class="sechead__note">Trois lignes suffisent. Je réponds sous 48 h — même pour dire non.</p>
+      </div>
+    </div>
+
+    <div class="contact">
+      <div data-reveal>
+        <a class="contact__big" href="mailto:benjaminxben@gmail.com?subject=Contact%20depuis%20le%20portfolio">benjaminxben@<wbr />gmail.com</a>
+        <div class="hero__cta">
+          <a class="btn btn--accent" href="mailto:benjaminxben@gmail.com?subject=Projet%20web%20%E2%80%94%20demande%20de%20devis">
+            Me contacter <span class="btn__arrow" aria-hidden="true">→</span>
+          </a>
+          <button class="btn btn--ghost" type="button" id="copy-mail" data-mail="benjaminxben@gmail.com">
+            Copier l'adresse
+          </button>
+        </div>
+        <p class="notice">
+          Formulaire de contact à brancher : cette maquette n'a pas de serveur, les liens ouvrent
+          votre logiciel de messagerie.
+        </p>
+      </div>
+
+      <ul class="contact__list" data-reveal style="--d:.1s">
+        <li><span class="mono">Mail</span> <a href="mailto:benjaminxben@gmail.com">benjaminxben@gmail.com</a></li>
+        <li><span class="mono">GitHub</span> <a href="https://github.com/cruzax" target="_blank" rel="noopener">github.com/cruzax ↗</a></li>
+        <li><span class="mono">LinkedIn</span> <a href="https://www.linkedin.com/in/benjaminscheurer/" target="_blank" rel="noopener">benjaminscheurer ↗</a></li>
+        <li><span class="mono">Secteur</span> <span>Bavans · Montbéliard · Doubs (25)</span></li>
+        <li><span class="mono">Statut</span> <span>Micro-entreprise · SIRET actif</span></li>
+        <li><span class="mono">Certification</span> <span>DWWM — RNCP 37674</span></li>
+        <li><span class="mono">Délai</span> <span>Réponse sous 48 h ouvrées</span></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ Pied ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <p class="brand" style="font-size:1.4rem">
+          <span class="brand__dot" aria-hidden="true"></span><span class="brand__word">Cruz<span class="accent">.dev</span></span>
+        </p>
+        <p class="dim" style="max-width:38ch; margin-top:.6rem; font-size:var(--t-small)">
+          Benjamin Scheurer — développeur web freelance. WordPress sur-mesure, React / Node,
+          intégration accessible.
+        </p>
+      </div>
+      <div>
+        <p class="mono" style="margin-bottom:.7rem">Sections</p>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#projets">Projets</a></li>
+          <li><a href="#stack">Stack</a></li>
+          <li><a href="#methode">Méthode</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="mono" style="margin-bottom:.7rem">Contact</p>
+        <ul>
+          <li><a href="mailto:benjaminxben@gmail.com">benjaminxben@gmail.com</a></li>
+          <li><a href="https://github.com/cruzax" target="_blank" rel="noopener">github.com/cruzax ↗</a></li>
+          <li><a href="https://www.linkedin.com/in/benjaminscheurer/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+          <li><a href="#contact">Me contacter</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__legal mono">
+      <span>© <span id="year">2026</span> Benjamin Scheurer — Cruz.dev</span>
+      <span><a href="mentions-legales.html" style="text-decoration:none">Mentions légales</a></span>
+      <span>Maquette · HTML, CSS, JS vanilla · sans framework</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/outils.js" defer></script>
+<script src="js/theme.js" defer></script>
+<script src="js/revelations.js" defer></script>
+<script src="js/navigation.js" defer></script>
+<script src="js/filtres.js" defer></script>
+<script src="js/contact.js" defer></script>
+<script src="js/halo.js" defer></script>
+</body>
+</html>

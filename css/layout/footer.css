@@ -1,0 +1,33 @@
+/* =========================================================
+   footer.css
+   Pied de page.
+   ========================================================= */
+
+/* --- Pied de page --- */
+
+.footer {
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid var(--line);
+  padding-block: 3rem 2rem;
+}
+.footer__grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 780px) {
+  .footer__grid { grid-template-columns: 2fr 1fr 1fr; align-items: start; }
+}
+.footer__legal {
+  margin-top: 2.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem 1.5rem;
+  justify-content: space-between;
+}
+.footer ul { list-style: none; padding: 0; display: grid; gap: .45rem; }
+.footer ul a { text-decoration: none; color: var(--text-2); transition: color .25s var(--ease); }
+.footer ul a:hover { color: var(--accent); }
